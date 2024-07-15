@@ -151,7 +151,7 @@ class FileFoolFuuka(File4Chan):
 
     @property
     def file_url(self):
-        return self._data.get("media_link", self._data.get("remote_media_link"))
+        return self._data.get("media_link") or self._data.get("remote_media_link")
 
     @property
     def file_extension(self):
@@ -183,7 +183,7 @@ class FileFoolFuuka(File4Chan):
 
     @property
     def thumbnail_fname(self):
-        return self._data.get("preview_op", self._data.get("preview_reply", self._data.get("preview_orig")))
+        return self._data.get("preview_op") or self._data.get("preview_reply") or self._data.get("preview_orig")
 
     @property
     def thumbnail_url(self):
